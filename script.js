@@ -1,6 +1,7 @@
 let currentDate = new Date();
 let happyResponse = document.getElementById('happy_response');
 let sadResponse = document.getElementById('sad_response');
+//this generates a random number for use as an index 
 let randomIndex = Math.floor((Math.random() * 2));
 
 let userData = {
