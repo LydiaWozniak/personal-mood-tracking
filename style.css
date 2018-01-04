@@ -1,0 +1,55 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+#question {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-grow: 1;
+  border: solid blue;
+}
+#question p {
+  font-size: 2em;
+  text-align: center;
+}
+.response {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-grow: 1;
+  border: solid red;
+  height: 70%;
+  overflow: hidden;
+}
+
+.contents {
+  flex-basis: auto;
+  align-self: center;
+  border: solid purple;
+  font-size: 1.5em;
+  width: 25%;
+  max-width: 250px;
+  padding-top: 25%;
+  overflow: hidden;
+}
+
+#happy_response:hover {
+  background: yellow;
+  color: white;
+}
+
+#happy_response:active {
+  background: black;
+  color: white;
+}
+
+#sad_response:hover {
+  background: blue;
+  color: white;
+}
+#sad_response:active {
+  background: black;
+  color: white;
+}
