@@ -29,27 +29,24 @@ body {
   align-self: center;
   border: solid purple;
   font-size: 1.5em;
-  width: 25%;
-  max-width: 250px;
-  padding-top: 25%;
   overflow: hidden;
 }
 
-#happy_response:hover {
+.happy_response:hover {
   background: yellow;
   color: white;
 }
 
-#happy_response:active {
+.happy_response:active {
   background: black;
   color: white;
 }
 
-#sad_response:hover {
+.sad_response:hover {
   background: blue;
   color: white;
 }
-#sad_response:active {
+.sad_response:active {
   background: black;
   color: white;
 }

@@ -1,7 +1,9 @@
 let currentDate = new Date();
-let happyResponse = document.getElementById('happy_response');
-let sadResponse = document.getElementById('sad_response');
-//this generates a random number for use as an index 
+let hours = currentDate.getHours(); //extract the hour from currentDate
+
+let happyResponse = document.querySelectorAll('.happy_response');
+let sadResponse = document.querySelectorAll('.sad_response');
+//this generates a random number for use as an index
 let randomIndex = Math.floor((Math.random() * 2));
 
 let userData = {
@@ -20,15 +22,21 @@ let moodQuestions = {
 };
 
 // console.log(moodQuestions.sad[randomIndex]);
-console.log(currentDate);
+
+console.log(hours); //logs hour
 
 // function questionField(feeling) {
 //   console.log(moodQuestions.feeling[randomIndex])
 // };
 
-happyResponse.onclick = function questionField() {
-    console.log(moodQuestions.happy[randomIndex])
-  };
+function chooseHappy(e) {
+  if(e.propertyName !== 'click') return; //to skip over events clicks
+  console.log("Choose Happy");
+};
+
+
+happyResponse.forEach(click =>  click.addEventListener('mousedown', chooseHappy));
+
 
 
 
