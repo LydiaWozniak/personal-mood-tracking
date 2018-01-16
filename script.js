@@ -2,8 +2,8 @@ let currentDate = new Date();
 let hours = currentDate.getHours(); //extract the hour from currentDate
 console.log(hours);
 
-let happyResponse = document.querySelectorAll('.happy_response');
-let sadResponse = document.getElementsByClassName('sad_response');
+// let happyResponse = document.querySelectorAll('.happy_response');
+// let sadResponse = document.getElementsByClassName('sad_response');
 //this generates a random number for use as an index
 let randomIndex = Math.floor((Math.random() * 2));
 
@@ -28,13 +28,13 @@ console.log(hours); //logs hour
 
 function happyFunction(){
   console.log('yay');
-}
+};
 
-function sadFunction(){
-  console.log('Noooooo');
-}
+// function sadFunction(){
+//   console.log('Noooooo');
+// }
 
-document.getElementById("goodButton").addEventListener("click", happyFunction());
+document.getElementById("goodButton").addEventListener("click", happyFunction);
 
 // On click remove options, display question from list and input field
 // for (i=0; i < sadResponse.length; i++){
