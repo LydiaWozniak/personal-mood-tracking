@@ -1,4 +1,7 @@
 let currentDate = new Date();
+let day = currentDate.getDate();
+let month = (currentDate.getMonth())+1;
+let year = currentDate.getFullYear();
 let hours = currentDate.getHours(); //extract the hour from currentDate
 console.log(hours);
 
@@ -34,6 +37,12 @@ function sadQuestion(){
   question.textContent = response;
   moodSelection.classList.toggle("hidden");
   inputField.classList.toggle("hidden");
+  userData.data.date = `${day} ${month} ${year}`
+  userData.data.mood = `Sad`;
+  userData.data.propQuestion= response;
+
+
+  console.table(userData);
 };
 
 function happyQuestion(){
@@ -41,11 +50,11 @@ function happyQuestion(){
   question.textContent = response;
   moodSelection.classList.toggle("hidden");
   inputField.classList.toggle("hidden");
+  userData.data.date = `${day} ${month} ${year}`
+  userData.data.mood = `Happy`;
+  userData.data.propQuestion= response;
 };
 
-// function sadFunction(){
-//   console.log('Noooooo');
-// }
 
 sadResponse.addEventListener("click", sadQuestion);
-happyResponse.addEventListener("click", happyQuestion);
+happyResponse.addEventListener("click", happyQuestion
