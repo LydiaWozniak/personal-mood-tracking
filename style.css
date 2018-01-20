@@ -8,11 +8,10 @@ body {
   justify-content: center;
   flex-grow: 1;
   border: solid blue;
-}
-#question p {
   font-size: 2em;
   text-align: center;
 }
+
 .response {
   display: flex;
   flex-direction: row;
@@ -20,16 +19,19 @@ body {
   justify-content: space-around;
   flex-grow: 1;
   border: solid red;
-  height: 70%;
   overflow: hidden;
+  padding: 2%;
 }
 
 .contents {
   flex-basis: auto;
   align-self: center;
   border: solid purple;
+  padding: 15vh;
+  margin: 2%;
   font-size: 1.5em;
   overflow: hidden;
+
 }
 
 .happy_response:hover {
@@ -49,4 +51,7 @@ body {
 .sad_response:active {
   background: black;
   color: white;
+}
+.hidden{
+  display: none;
 }
