@@ -55,3 +55,19 @@ body {
 .hidden{
   display: none;
 }
+.past_data{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-grow: 1;
+  border: solid blue;
+  font-size: 1.2em;
+  text-align: center;
+};
+
+.table_data{
+  flex-basis: auto;
+  align-self: center;
+  border: solid purple;
+};
