@@ -4,7 +4,7 @@ let month = (currentDate.getMonth())+1;
 let year = currentDate.getFullYear();
 let hours = currentDate.getHours();
 let minutes = currentDate.getMinutes(); //extract the hour from currentDate
-let currentDay = `${day} ${month} ${year}`;
+let currentDay = `${day}:${month}:${year}`;
 console.log(hours);
 
 let time = `${hours} ${minutes}`
