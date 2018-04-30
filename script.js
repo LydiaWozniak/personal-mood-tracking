@@ -1,10 +1,11 @@
+
 const questionField = document.querySelector('#question');
 const sadResponse = document.querySelector('.sad_response');
 const happyResponse = document.querySelector('.happy_response');
 const moodSelection = document.querySelector('.response');
 const inputField = document.querySelector('.inputField');
 const pastData = document.querySelector('.past_data');
-const button = document.querySelector('button'); 
+const button = document.querySelector('button');
 //this generates a random number for use as an index
 let randomIndex = Math.floor((Math.random() * 2));
 
