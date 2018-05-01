@@ -1,22 +1,4 @@
-<<<<<<< HEAD
-let currentDate = new Date();
-let day = currentDate.getDate();
-let month = (currentDate.getMonth())+1;
-let year = currentDate.getFullYear();
-let hours = currentDate.getHours();
-let minutes = currentDate.getMinutes(); //extract the hour from currentDate
-let currentDay = `${day}:${month}:${year}`;
-console.log(hours);
 
-let time = `${hours} ${minutes}`
-
-let questionField = document.querySelector('#question');
-let sadResponse = document.querySelector('.sad_response');
-let happyResponse = document.querySelector('.happy_response');
-let moodSelection = document.querySelector('.response');
-let inputField = document.querySelector('.inputField');
-let pastData = document.querySelector('.table_data');
-=======
 const questionField = document.querySelector('#question');
 const sadResponse = document.querySelector('.sad_response');
 const happyResponse = document.querySelector('.happy_response');
@@ -24,7 +6,7 @@ const moodSelection = document.querySelector('.response');
 const inputField = document.querySelector('.inputField');
 const pastData = document.querySelector('.past_data');
 const button = document.querySelector('button'); 
->>>>>>> WorkingBranch
+ 
 //this generates a random number for use as an index
 let randomIndex = Math.floor((Math.random() * 2));
 
@@ -40,6 +22,7 @@ let moodQuestions = {
 function happyQuestion(){
   let response = `${moodQuestions.happy[randomIndex]}`;
   let currentTime = new Date();
+  let dateFormat = `${currentTime.getDate()}: ${(currentTime.getMonth())+1}: ${currentTime.getFullYear()}`
   question.textContent = response;
   moodSelection.classList.toggle("hidden");
   inputField.classList.toggle("hidden");
@@ -48,20 +31,18 @@ function happyQuestion(){
 
   function inputText(e) {
     if(e.keyCode === 13) {
-  
+      const text = (document.querySelector('[name=userResponse')).value; 
       const dataAddition = {
-        date: currentTime,
+        date: dateFormat,
         mood: 'Happy',
         propQuestion: response,
-        answer: `${inputField.value}`};
-
-      question.textContent = 'How are you feeling today?';
-      moodSelection.classList.toggle("hidden");
-      inputField.classList.toggle("hidden");
-      window.location.reload();
+        answer: text
+      }
       userData.push(dataAddition);
       localStorage.setItem('userData', JSON.stringify(userData));
+      this.reset; 
       console.table(userData);
+      window.location.reload(true); 
     };
   
   };
@@ -89,13 +70,13 @@ function happyQuestion(){
 function populatePastData(data =[], dataBank){
   dataBank.innerHTML = data.map((data, i) => {
     return `
-    <li>
+    <ul>
       Past Responses: 
-      ${JSON.stringify(userData[i].date)}
-      ${JSON.stringify(userData[i].mood)}
-      ${JSON.stringify(userData[i].propQuestion)}
-      ${JSON.stringify(userData[i].answer)}
-    </li>
+     <li> Date: ${(userData[i].date)} </li>
+     <li> ${(userData[i].mood)} </li>
+     <li> Question Asked: ${(userData[i].propQuestion)} </li>
+     <li> Answer: ${(userData[i].answer)} </li> 
+    </ul>  
     `;
   }).join('');
 };

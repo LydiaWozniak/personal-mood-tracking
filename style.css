@@ -64,9 +64,9 @@ body {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
+  text-align: left; 
   flex-grow: 1;
   font-size: 1.2em;
-  text-align: center;
 };
 
 .table_data{
