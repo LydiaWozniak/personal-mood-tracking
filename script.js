@@ -1,12 +1,22 @@
 
 const questionField = document.querySelector('#question');
 const sadResponse = document.querySelector('.sad_response');
-const happyResponse = document.querySelector('.happy_response');
+const userResponse = document.querySelector('.happy_response');
 const moodSelection = document.querySelector('.response');
 const inputField = document.querySelector('.inputField');
 const pastData = document.querySelector('.past_data');
 const dataDisplay = document.querySelector('.dataDisplay'); 
 const button = document.querySelector('.toggleButton'); 
+const slider = document.getElementById("myRange");
+const output = document.getElementById("output");
+
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+    output.innerHTML = this.value;
+}; 
+
  
 //this generates a random number for use as an index
 let randomIndex = Math.floor((Math.random() * 2));
@@ -20,10 +30,18 @@ let moodQuestions = {
 };
 
 
-function happyQuestion(){
-  let response = `${moodQuestions.happy[randomIndex]}`;
+function trackMood(){
+  console.log("clicked"); 
+  let currentMood = slider.value;
+  let response; 
+  if (currentMood >= 5) {
+    response = `${moodQuestions.happy[randomIndex]}`; 
+  }
+    else {
+    response = `${moodQuestions.sad[randomIndex]}`;
+    };
   let currentTime = new Date();
-  let dateFormat = `${currentTime.getDate()}: ${(currentTime.getMonth())+1}: ${currentTime.getFullYear()}`
+  let dateFormat = `${currentTime.getDate()}: ${(currentTime.getMonth())+1}: ${currentTime.getFullYear()}`;
   question.textContent = response;
   moodSelection.classList.toggle("hidden");
   inputField.classList.toggle("hidden");
@@ -35,7 +53,7 @@ function happyQuestion(){
       const text = (document.querySelector('[name=userResponse')).value; 
       const dataAddition = {
         date: dateFormat,
-        mood: 'Happy',
+        mood: currentMood,
         propQuestion: response,
         answer: text
       }
@@ -45,30 +63,8 @@ function happyQuestion(){
       console.table(userData);
       window.location.reload(true); 
     };
-  
+    };
   };
-  
-
-
-};
-
-// function inputText(e) {
-//   if(e.keyCode === 13) {
-
-//     const yourAnswer = {
-//       date: currentDay,
-//       answer: `${inputField.value}`};
-
-//     userData.push(yourAnswer);
-//     question.textContent = 'How are you feeling today?';
-//     moodSelection.classList.toggle("hidden");
-//     inputField.classList.toggle("hidden");
-//     window.location.reload();
-//   };
-
-// };
-
-
 
 function populatePastData(data =[], dataBank){
   dataBank.innerHTML = data.map((data, i) => {
@@ -89,8 +85,7 @@ function toggleHistory() {
   console.log('clicked'); 
 };
 
-// sadResponse.addEventListener("click", sadQuestion);
 populatePastData(userData, pastData);
 button.addEventListener("click", toggleHistory); 
-happyResponse.addEventListener("click", happyQuestion);
+userResponse.addEventListener("click", trackMood); 
 // inputField.addEventListener('keydown', inputText);

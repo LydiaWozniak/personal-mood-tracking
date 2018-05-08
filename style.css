@@ -17,6 +17,30 @@ body {
   text-align: center;
 }
 
+.slidecontainer {
+  margin: 5%; 
+  display: flex; 
+  justify-content: center;
+
+}
+.slider {
+  -webkit-appearance: none; 
+  background:linear-gradient(to right, #C0392B,  yellow);; /* Grey background */
+}
+
+#moodSubmit {
+  color: #C0392B;
+  background: white; 
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: white;
+  cursor: pointer;
+}
+
 .response {
   display: flex;
   flex-direction: row;
@@ -48,14 +72,7 @@ body {
   color: white;
 }
 
-.sad_response:hover {
-  background: blue;
-  color: white;
-}
-.sad_response:active {
-  background: black;
-  color: white;
-}
+
 .hidden{
   display: none;
 }
@@ -67,10 +84,10 @@ body {
   text-align: left; 
   flex-grow: 1;
   font-size: 1.2em;
-};
+}
 
 .table_data{
   flex-basis: auto;
   align-self: center;
   border: solid purple;
-};
+}
