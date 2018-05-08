@@ -5,7 +5,8 @@ const happyResponse = document.querySelector('.happy_response');
 const moodSelection = document.querySelector('.response');
 const inputField = document.querySelector('.inputField');
 const pastData = document.querySelector('.past_data');
-const button = document.querySelector('button'); 
+const dataDisplay = document.querySelector('.dataDisplay'); 
+const button = document.querySelector('.toggleButton'); 
  
 //this generates a random number for use as an index
 let randomIndex = Math.floor((Math.random() * 2));
@@ -38,7 +39,7 @@ function happyQuestion(){
         propQuestion: response,
         answer: text
       }
-      userData.push(dataAddition);
+      userData.unshift(dataAddition);
       localStorage.setItem('userData', JSON.stringify(userData));
       this.reset; 
       console.table(userData);
@@ -67,21 +68,29 @@ function happyQuestion(){
 
 // };
 
+
+
 function populatePastData(data =[], dataBank){
   dataBank.innerHTML = data.map((data, i) => {
     return `
     <ul>
       Past Responses: 
-     <li> Date: ${(userData[i].date)} </li>
-     <li> ${(userData[i].mood)} </li>
-     <li> Question Asked: ${(userData[i].propQuestion)} </li>
-     <li> Answer: ${(userData[i].answer)} </li> 
+      <li> Date: ${(userData[i].date)} </li>
+      <li> ${(userData[i].mood)} </li>
+      <li> Question Asked: ${(userData[i].propQuestion)} </li>
+      <li> Answer: ${(userData[i].answer)} </li> 
     </ul>  
     `;
   }).join('');
 };
 
+function toggleHistory() {
+  dataDisplay.classList.toggle("hidden");
+  console.log('clicked'); 
+};
+
 // sadResponse.addEventListener("click", sadQuestion);
 populatePastData(userData, pastData);
+button.addEventListener("click", toggleHistory); 
 happyResponse.addEventListener("click", happyQuestion);
 // inputField.addEventListener('keydown', inputText);
